@@ -1,0 +1,33 @@
+server:
+  port: 9091
+
+spring:
+  application:
+    name: user
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.1.18:3306/mall?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: lzp
+    password: 123456
+  redis:
+    database: 0
+    host: 192.168.1.18
+    port: 6379
+    timeout: 10000
+    jedis:
+      pool:
+        max-active: 30
+        max-wait: 10000
+        max-idle: 200
+        min-idle: 2
+
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    cache-enabled: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka
